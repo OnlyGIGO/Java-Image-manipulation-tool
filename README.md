@@ -11,9 +11,9 @@ The tool supports at the moment only JPGS and PNGS, more filetypes coming soon.
 - **Rotation:** Rotate images to the desired orientation effortlessly.
 
 ## Screenshots
-
+ Showing output of --help command\
 ![Screenshot 1](images/screenshot1.png)
-
+ Showing output of a simple rotation command\
 ![Screenshot 2](images/screenshot2.png)
 
 ## Getting Started
