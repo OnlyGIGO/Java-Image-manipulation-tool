@@ -14,7 +14,7 @@ public class Main
     {
         Argument verbose = new ArgumentBuilder().setName("verbose")
                 .setDescription("Verbosity level(0-3), example --verbose 2")
-                .setDefaultValue(0)
+                .setDefaultValue(3)
                 .setRequired(false)
                 .setFlag(false)
                 .setValidator(value -> {
@@ -103,7 +103,7 @@ public class Main
 
         Image image= ImageFactory.createImage(inputFileArgValue);
         if (image==null){
-            Logger.getInstance().error("Unsupported file type");
+            Logger.getInstance().error("Unsupported file type or file does not exist");
             System.exit(1);
         }
         rotate.setParameters(angleArgValue);

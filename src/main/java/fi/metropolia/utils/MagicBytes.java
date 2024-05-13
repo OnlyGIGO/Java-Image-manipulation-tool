@@ -9,18 +9,18 @@ public enum MagicBytes {
     PNG(0x89, 0x50),  // PNG magic bytes
     JPG(0xFF, 0xD8);  // JPEG magic bytes
 
-    private final int[] mBytes;
+    private final int[] magicBytes;
 
     private MagicBytes(int...bytes) {
-        mBytes = bytes;
+        magicBytes = bytes;
     }
 
     public boolean is(byte[] bytes) {
-        if (bytes.length != mBytes.length)
-            throw new RuntimeException("I need the first "+mBytes.length
+        if (bytes.length != magicBytes.length)
+            throw new RuntimeException("I need the first "+magicBytes.length
                     + " bytes of an input stream.");
         for (int i=0; i<bytes.length; i++)
-            if (Byte.toUnsignedInt(bytes[i]) != mBytes[i])
+            if (Byte.toUnsignedInt(bytes[i]) != magicBytes[i])
                 return false;
         return true;
     }
@@ -38,6 +38,6 @@ public enum MagicBytes {
     }
 
     public boolean is(InputStream is) throws IOException {
-        return is(extract(is, mBytes.length));
+        return is(extract(is, magicBytes.length));
     }
 }
